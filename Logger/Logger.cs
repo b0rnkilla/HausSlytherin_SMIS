@@ -49,6 +49,6 @@ public static class Logger
 
     private static string BuildLogFilePath(DateTime date)
     {
-        return Path.Combine(FixedLogDirectory, $"Log-{date:yyyy-MM-dd}.txt");
+        return Path.Combine(FixedLogDirectory, $"Logs-{date:yyyy-MM-dd}.txt");
     }
 }
