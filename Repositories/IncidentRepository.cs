@@ -26,7 +26,7 @@ public class IncidentRepository : IRepository<Incident>
         }
     }
 
-    public IEnumerable<Incident> GetAll()
+    public List<Incident> GetAll()
     {
         return _incidents;
     }
