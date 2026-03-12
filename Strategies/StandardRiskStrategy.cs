@@ -16,7 +16,7 @@ public class StandardRiskStrategy : IRiskStrategy
     {
         if(creature is null || incident is null)
         {
-           AppLogger.LogInfo(LogLevel.Error, "Die StandardRiskStrategy benoetigt eine Kreatur und einen Vorfall.", true);
+           AppLogger.LogInfo(LogLevel.Error, "Die StrictRiskStrategy benoetigt eine Kreatur und einen Vorfall.", true);
            return 0;
         }
 
@@ -28,10 +28,10 @@ public class StandardRiskStrategy : IRiskStrategy
     {
         return riskScore switch
         {
-            <= 30 => "Low Risk: Monitor",
-            <= 60 => "Medium Risk: Caution",
-            <= 100 => "High Risk: Restricted Access",
-            _ => "Critical Risk: No Access"
+            <= 30 => "Beobachten",
+            <= 60 => "Vorsicht",
+            <= 100 => "Eingeschraenkter Zugang",
+            _ => "Sofortiges Eingreifen"
         };
     }
 }
