@@ -31,25 +31,25 @@ public class IncidentService
         
         if (incident is null)
         {
-            AppLogger.LogInfo(LogLevel.Error, "Incident is required.", console: true);
+            AppLogger.LogInfo(LogLevel.Error, "Der Vorfall ist erforderlich.", console: true);
             return false;
         }
 
         if (string.IsNullOrWhiteSpace(incident.Title))
         {
-            AppLogger.LogInfo(LogLevel.Error, "Incident title is required.", console: true);
+            AppLogger.LogInfo(LogLevel.Error, "Der Titel des Vorfalls ist erforderlich.", console: true);
             return false;
         }
 
         if (string.IsNullOrWhiteSpace(incident.Description))
         {
-            AppLogger.LogInfo(LogLevel.Error, "Incident description is required.", console: true);
+            AppLogger.LogInfo(LogLevel.Error, "Die Beschreibung des Vorfalls ist erforderlich.", console: true);
             return false;
         }
 
         if (!System.Enum.IsDefined(typeof(IncidentSeverity), incident.Severity))
         {
-            AppLogger.LogInfo(LogLevel.Error, "Incident severity is invalid.", console: true);
+            AppLogger.LogInfo(LogLevel.Error, "Der Schweregrad des Vorfalls ist ungueltig.", console: true);
             return false;
         }
 
@@ -57,7 +57,7 @@ public class IncidentService
         {
             AppLogger.LogInfo(
                 LogLevel.Error,
-                $"Creature with id {incident.CreatureId} does not exist.",
+                $"Die Kreatur mit der ID {incident.CreatureId} existiert nicht.",
                 console: true);
             return false;
         }
