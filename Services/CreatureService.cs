@@ -14,7 +14,7 @@ namespace HausSlytherin_SMIS.Services
 
                 if (string.IsNullOrWhiteSpace(name))
                 {
-                    Console.WriteLine("Ungültige Eingabe für Kreaturname: Leere oder nur Leerzeichen.");
+                    Console.WriteLine("Fehler: Die Eingabe darf nicht leer sein.");
                     continue;
                 }
 
@@ -32,6 +32,7 @@ namespace HausSlytherin_SMIS.Services
             {
                 Console.WriteLine("Bitte Kreaturtyp auswählen:");
                 CreatureType[] values = System.Enum.GetValues<CreatureType>();
+
                 for (int i = 0; i < values.Length; i++)
                 {
                     Console.WriteLine($"[{i + 1}] {values[i]}");
@@ -67,9 +68,10 @@ namespace HausSlytherin_SMIS.Services
             {
                 Console.Write("Bitte Spezies eingeben: ");
                 species = (Console.ReadLine() ?? string.Empty).Trim();
+
                 if (string.IsNullOrWhiteSpace(species))
                 {
-                    Console.WriteLine("Ungültige Eingabe für Spezies: Leere oder nur Leerzeichen.");
+                    Console.WriteLine("Fehler: Die Eingabe darf nicht leer sein.");
                     continue;
                 }
 
@@ -87,9 +89,10 @@ namespace HausSlytherin_SMIS.Services
             {
                 Console.Write("Bitte Habitat eingeben: ");
                 habitat = (Console.ReadLine() ?? string.Empty).Trim();
+
                 if (string.IsNullOrWhiteSpace(habitat))
                 {
-                    Console.WriteLine("Ungültige Eingabe für Habitat: Leere oder nur Leerzeichen.");
+                    Console.WriteLine("Fehler: Die Eingabe darf nicht leer sein.");
                     continue;
                 }
 
@@ -102,8 +105,63 @@ namespace HausSlytherin_SMIS.Services
                 break;
             }
 
-            //CreatureFactory.Create(name, creatureType, species, habitat);
-            // TODO: Wenn Factory fertig, o.g. Aufruf anpassen.
+            int danger;
+            while (true)
+            {
+                Console.Write("Bitte Gefahrenlevel (1-10) eingeben: ");
+                string input = (Console.ReadLine() ?? string.Empty).Trim();
+
+                if (string.IsNullOrWhiteSpace(input))
+                {
+                    Console.WriteLine("Fehler: Die Eingabe darf nicht leer sein.");
+                }
+
+                if (!int.TryParse(input, out danger))
+                {
+                    Console.WriteLine("Fehler: Bitte eine gültige ganze Zahl eingeben.");
+                    continue;
+                }
+
+                if (danger < 1 || danger > 10)
+                {
+                    Console.WriteLine("Fehler: Bitte eine Zahl zwischen 1 und 10 eingeben.");
+                    continue;
+                }
+
+                break;
+            }
+
+            bool restricted;
+            while (true)
+            {
+                Console.Write("Ist die Kreatur eingeschränkt? (ja/nein): ");
+                string input = (Console.ReadLine() ?? string.Empty).Trim().ToLower();
+
+                if (string.IsNullOrWhiteSpace(input))
+                {
+                    Console.WriteLine("Fehler: Die Eingabe darf nicht leer sein.");
+                    continue;
+                }
+
+                switch (input)
+                {
+                    case "ja":
+                    case "j":
+                        restricted = true;
+                        break;
+                    case "nein":
+                    case "n":
+                        restricted = false;
+                        break;
+                    default:
+                        Console.WriteLine("Fehler: Bitte 'ja' oder 'nein' eingeben.");
+                        continue;
+                }
+
+                break;
+            }
+
+            //CreatureFactory.Create(name, species, danger, habitat, restricted, creatureType);
         }
 
         /*
