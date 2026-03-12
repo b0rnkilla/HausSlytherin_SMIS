@@ -1,6 +1,5 @@
 namespace HausSlytherin_SMIS.Enums
 {
-    
     public enum IncidentSeverity
     {
         Low = 1,

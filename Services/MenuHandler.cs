@@ -34,7 +34,7 @@ namespace HausSlytherin_SMIS.Services
                 string input = Console.ReadLine() ?? string.Empty;
                 Console.WriteLine(); // Leerzeile
 
-                if (!int.TryParse(input, out int number) || !Enum.IsDefined(typeof(MenuOptions), number))
+                if (!int.TryParse(input, out int number) || !System.Enum.IsDefined(typeof(MenuOptions), number))
                 {
                     Console.WriteLine("Ungültige Auswahl.\nBitte eine Zahl aus dem Menü eingeben.");
                     continue;

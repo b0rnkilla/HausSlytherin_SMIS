@@ -1,13 +1,11 @@
-using System;
-using HouseSlytherin_SMIS.Models;
-using HouseSlytherin_SMIS.Interfaces;
-using HouseSlytherin_SMIS.Repositories;
+using HausSlytherin_SMIS.Enums;
+using HausSlytherin_SMIS.Models;
+using HausSlytherin_SMIS.Repositories;
 
 namespace HausSlytherin_SMIS.Factories
 {
     public class IncidentFactory
     {
-
         private int _idCounter = 1;
         private readonly IncidentRepository _repo;
 
@@ -27,6 +25,5 @@ namespace HausSlytherin_SMIS.Factories
             _repo.Add(obj);
             return true;
         }
-
     }
 }

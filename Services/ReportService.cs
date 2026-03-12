@@ -1,8 +1,7 @@
 using HausSlytherin_SMIS.Interfaces;
 using HausSlytherin_SMIS.Models;
 using AppLogger = HausSlytherin_SMIS.Logger;
-using LogLevel = HausSlytherin_SMIS.Enum.Level;
-
+using LogLevel = HausSlytherin_SMIS.Enums.Level;
 
 namespace HausSlytherin_SMIS.Services
 {

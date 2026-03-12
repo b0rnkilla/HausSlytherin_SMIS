@@ -1,4 +1,4 @@
-namespace HausSlytherin_SMIS.Enum
+namespace HausSlytherin_SMIS.Enums
 {
     /// <summary> Enum für die verschiedenen Log-Level. </summary>
     public enum Level

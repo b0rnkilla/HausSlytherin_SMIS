@@ -1,5 +1,4 @@
 using HausSlytherin_SMIS.Enums;
-using HausSlytherin_SMIS.Repositories;
 
 namespace HausSlytherin_SMIS.Services
 {
@@ -32,7 +31,7 @@ namespace HausSlytherin_SMIS.Services
             while (true)
             {
                 Console.WriteLine("Bitte Kreaturtyp auswählen:");
-                CreatureType[] values = Enum.GetValues<CreatureType>();
+                CreatureType[] values = System.Enum.GetValues<CreatureType>();
                 for (int i = 0; i < values.Length; i++)
                 {
                     Console.WriteLine($"[{i + 1}] {values[i]}");
@@ -107,6 +106,7 @@ namespace HausSlytherin_SMIS.Services
             // TODO: Wenn Factory fertig, o.g. Aufruf anpassen.
         }
 
+        /*
         public static void GetAllCreatures()
         {
             var allCreatures = CreatureRepository.GetAll();
@@ -172,5 +172,6 @@ namespace HausSlytherin_SMIS.Services
                 Console.WriteLine($"- {creature.Name} (Gefahrenlevel: {creature.DangerLevel})");
             }
         }
+        */
     }
 }

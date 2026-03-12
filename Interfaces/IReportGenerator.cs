@@ -2,7 +2,6 @@ using HausSlytherin_SMIS.Models;
 
 namespace HausSlytherin_SMIS.Interfaces
 {
-
     /// <summary>
     /// Definiert eine Komponente, die Risikoberichte erzeugen kann.
     /// </summary>
@@ -17,7 +16,5 @@ namespace HausSlytherin_SMIS.Interfaces
         /// <param name="strategy">Die ausgewaehlte Risikostrategie.</param>
         /// <returns>Der erzeugte Risikobericht.</returns>
         RiskReport? Generate(Creature? creature, Incident? incident, IRiskStrategy? strategy);
-
     }
-
 }
