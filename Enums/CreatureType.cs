@@ -1,6 +1,6 @@
 namespace HausSlytherin_SMIS.Enums
 {
-    public enum CreatureTypes
+    public enum CreatureType
     {
         Dragon = 1,
         Unicorn = 2,
