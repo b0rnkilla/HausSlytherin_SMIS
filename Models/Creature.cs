@@ -8,7 +8,7 @@ public class Creature
     public int DangerLevel { get; set; }
     public string Habitat { get; set; } = string.Empty;
     public bool IsRestricted { get; set; }
-    public string CreatureType { get; set; } = string.Empty;
+    public CreatureType CreatureType { get; set; } = CreatureType.Unknown;
 
     public void PrintInfo() =>
         Console.WriteLine($"ID: {Id} | {Name} | ({Species}) | Danger: {DangerLevel}");
