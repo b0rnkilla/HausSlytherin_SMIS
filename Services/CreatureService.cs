@@ -1,10 +1,23 @@
 using HausSlytherin_SMIS.Enums;
+using HausSlytherin_SMIS.Factories;
+using HausSlytherin_SMIS.Interfaces;
+using HausSlytherin_SMIS.Repositories;
 
 namespace HausSlytherin_SMIS.Services
 {
-    public static class CreatureService
+    public class CreatureService
     {
-        public static void AddCreature()
+        private readonly ICreatureRepository _creatureRepository;
+        private readonly CreatureFactory _creatureFactory;
+
+        public CreatureService(ICreatureRepository creatureRepository, CreatureFactory creatureFactory)
+        {
+            _creatureRepository = creatureRepository;
+            _creatureFactory = creatureFactory;
+        }
+
+
+        public void AddCreature()
         {
             string name;
             while (true)
@@ -161,13 +174,13 @@ namespace HausSlytherin_SMIS.Services
                 break;
             }
 
-            //CreatureFactory.Create(name, species, danger, habitat, restricted, creatureType);
+            var creature = _creatureFactory.Create(name, species, danger, habitat, restricted, creatureType);
+            _creatureRepository.Add(creature);
         }
 
-        /*
-        public static void GetAllCreatures()
+        public void GetAllCreatures()
         {
-            var allCreatures = CreatureRepository.GetAll();
+            var allCreatures = _creatureRepository.GetAll();
             
             if (allCreatures.Count == 0)
             {
@@ -182,9 +195,9 @@ namespace HausSlytherin_SMIS.Services
             }
         }
 
-        public static void GetMostDangerousCreature()
+        public void GetMostDangerousCreature()
         {
-            var creatures = CreatureRepository.GetAll();
+            var creatures = _creatureRepository.GetAll();
 
             if (creatures.Count == 0)
             {
@@ -197,9 +210,9 @@ namespace HausSlytherin_SMIS.Services
             Console.WriteLine($"Die gefährlichste Kreatur ist: {mostDangerous.Name} mit einem Gefahrenlevel von {mostDangerous.DangerLevel}");
         }
 
-        public static void GetAverageDangerLevel()
+        public void GetAverageDangerLevel()
         {
-            var creatures = CreatureRepository.GetAll();
+            var creatures = _creatureRepository.GetAll();
 
             if (creatures.Count == 0)
             {
@@ -212,9 +225,9 @@ namespace HausSlytherin_SMIS.Services
             Console.WriteLine($"Der durchschnittliche Gefahrenlevel aller Kreaturen beträgt: {averageDangerLevel:F2}");
         }
 
-        public static void GetRestrictedCreatures()
+        public void GetRestrictedCreatures()
         {
-            var creatures = CreatureRepository.GetAll();
+            var creatures = _creatureRepository.GetAll();
 
             if (creatures.Count == 0)
             {
@@ -230,6 +243,5 @@ namespace HausSlytherin_SMIS.Services
                 Console.WriteLine($"- {creature.Name} (Gefahrenlevel: {creature.DangerLevel})");
             }
         }
-        */
     }
 }

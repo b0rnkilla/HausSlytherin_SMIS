@@ -6,7 +6,9 @@ namespace HausSlytherin_SMIS
     {
         static void Main(string[] args)
         {
-            MenuHandler.Run();
+            AppContainer appContainer = new AppContainer();
+
+            MenuHandler.Run(appContainer);
         }
     }
 }
