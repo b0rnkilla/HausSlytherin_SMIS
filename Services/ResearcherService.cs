@@ -25,13 +25,13 @@ namespace SlytherinMagicalIntelligenceSystem.Services
     {
         if (researcher is null)
         {
-            AppLogger.LogInfo(LogLevel.Error,"Der Forscher ist erforderlich." true);
+            AppLogger.LogInfo(LogLevel.Error,"Der Forscher ist erforderlich.", true);
             return false;
         }
         
         if (string.IsNullOrWhiteSpace(researcher.Name))
         {
-            AppLogger.LogInfo(LogLevel.Error, "Der Name des Forschers ist erforderlich." true);
+            AppLogger.LogInfo(LogLevel.Error, "Der Name des Forschers ist erforderlich.", true);
             return false;
         }
 
