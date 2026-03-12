@@ -1,43 +1,44 @@
 using HausSlytherin_SMIS.Interfaces;
 using HausSlytherin_SMIS.Models;
 
-namespace HausSlytherin_SMIS.Repositories;
-
-public class CreatureRepository : ICreatureRepository
+namespace HausSlytherin_SMIS.Repositories
 {
-    private readonly List<Creature> _creatures = new();
-
-    public void Add(Creature item)
+    public class CreatureRepository : ICreatureRepository
     {
-        _creatures.Add(item);
-    }
+        private readonly List<Creature> _creatures = new();
 
-    public List<Creature> GetAll()
-    {
-        return _creatures;
-    }
-
-    public Creature? GetById(int id)
-    {
-        return _creatures.FirstOrDefault(c => c.Id == id);
-    }
-
-    public void Remove(int id)
-    {
-        var creature = GetById(id);
-        if (creature != null)
+        public void Add(Creature item)
         {
-            _creatures.Remove(creature);
+            _creatures.Add(item);
         }
-    }
 
-    public Creature? GetByName(string name)
-    {
-        return _creatures.FirstOrDefault(c => c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
-    }
+        public List<Creature> GetAll()
+        {
+            return _creatures;
+        }
 
-    public List<Creature> GetRestrictedCreatures()
-    {
-        return _creatures.Where(c => c.IsRestricted).ToList();
+        public Creature? GetById(int id)
+        {
+            return _creatures.FirstOrDefault(c => c.Id == id);
+        }
+
+        public void Remove(int id)
+        {
+            var creature = GetById(id);
+            if (creature != null)
+            {
+                _creatures.Remove(creature);
+            }
+        }
+
+        public Creature? GetByName(string name)
+        {
+            return _creatures.FirstOrDefault(c => c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+        }
+
+        public List<Creature> GetRestrictedCreatures()
+        {
+            return _creatures.Where(c => c.IsRestricted).ToList();
+        }
     }
 }

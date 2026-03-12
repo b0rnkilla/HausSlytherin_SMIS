@@ -1,15 +1,13 @@
-using System;
-using HouseSlytherin_SMIS.Models;
-using HouseSlytherin_SMIS.Interfaces;
-using HouseSlytherin_SMIS.Repositories;
+using HausSlytherin_SMIS.Enums;
+using HausSlytherin_SMIS.Models;
+using HausSlytherin_SMIS.Repositories;
 
-namespace HausSyltherin_SMIS.Factories
+namespace HausSlytherin_SMIS.Factories
 {
     public class ResearcherFactory
     {
-
         private int _idCounter = 1;
-        private readonly ReseacherRepository _repo;
+        private readonly ResearcherRepository _repo;
 
         public ResearcherFactory(ResearcherRepository repo) => _repo = repo;
 
@@ -27,6 +25,5 @@ namespace HausSyltherin_SMIS.Factories
             _repo.Add(obj);
             return true;
         }
-
     }
 }

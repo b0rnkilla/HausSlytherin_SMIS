@@ -1,38 +1,39 @@
 using HausSlytherin_SMIS.Interfaces;
 using HausSlytherin_SMIS.Models;
 
-namespace HausSlytherin_SMIS.Repositories;
-
-public class ResearcherRepository : IRepository<Researcher>
+namespace HausSlytherin_SMIS.Repositories
 {
-    private readonly List<Researcher> _researchers;
-
-    public ResearcherRepository()
+    public class ResearcherRepository : IRepository<Researcher>
     {
-        _researchers = new List<Researcher>();
-    }
+        private readonly List<Researcher> _researchers;
 
-    public void Add(Researcher entity)
-    {
-        _researchers.Add(entity);
-    }
-
-    public void Remove(int id)
-    {
-        var researcher = GetById(id);
-        if (researcher != null)
+        public ResearcherRepository()
         {
-            _researchers.Remove(researcher);
+            _researchers = new List<Researcher>();
         }
-    }
 
-    public List<Researcher> GetAll()
-    {
-        return _researchers;
-    }
+        public void Add(Researcher entity)
+        {
+            _researchers.Add(entity);
+        }
 
-    public Researcher GetById(int id)
-    {
-        return _researchers.FirstOrDefault(r => r.Id == id);
+        public void Remove(int id)
+        {
+            var researcher = GetById(id);
+            if (researcher != null)
+            {
+                _researchers.Remove(researcher);
+            }
+        }
+
+        public List<Researcher> GetAll()
+        {
+            return _researchers;
+        }
+
+        public Researcher GetById(int id)
+        {
+            return _researchers.FirstOrDefault(r => r.Id == id);
+        }
     }
 }
