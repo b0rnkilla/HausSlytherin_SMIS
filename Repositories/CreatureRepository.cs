@@ -30,4 +30,14 @@ public class CreatureRepository : ICreatureRepository
             _creatures.Remove(creature);
         }
     }
+
+    public Creature? GetByName(string name)
+    {
+        return _creatures.FirstOrDefault(c => c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+    }
+
+    public List<Creature> GetRestrictedCreatures()
+    {
+        return _creatures.Where(c => c.IsRestricted).ToList();
+    }
 }
