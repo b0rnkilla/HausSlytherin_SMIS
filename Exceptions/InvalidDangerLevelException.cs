@@ -9,7 +9,7 @@ public class InvalidDangerLevelException : Exception
     /// Erstellt die Exception für einen ungültigen numerischen Danger Level.
     /// </summary>
     /// <param name="dangerLevel">Der ungültige numerische Danger Level.</param>
-    public InvalidDangerLevelException(int dangerLevel)        : base($"Der Dangerlevel '{dangerLevel}' ist ungültig. Er muss zwischen 1 und 10 liegen.")
+    public InvalidDangerLevelException(int dangerLevel) : base($"Der Dangerlevel '{dangerLevel}' ist ungültig. Er muss zwischen 1 und 10 liegen.")
     {
         
     }
