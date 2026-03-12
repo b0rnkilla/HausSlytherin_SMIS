@@ -10,7 +10,7 @@ public class StrictRiskStrategy : IRiskStrategy
 {
     
     /// <summary> Gibt den Namen der Strategie zurueck </summary>
-    public string Name => "Strict";
+    public string Name => "Streng";
 
     /// <summary> Berechent das Risiko mit strengerer Gewichtung und einem Zusatz fuer eingeschraenkte Kreaturen </summary>
     public int CalculateRisk(Creature creature, Incident incident)
