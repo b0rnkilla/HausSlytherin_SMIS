@@ -1,5 +1,4 @@
 ﻿using HausSlytherin_SMIS.Enums;
-using HausSlytherin_SMIS.Models;
 
 namespace HausSlytherin_SMIS.Services
 {
@@ -46,35 +45,35 @@ namespace HausSlytherin_SMIS.Services
                 switch (option)
                 {
                     case MenuOptions.AddCreature:
-
+                        //CreatureService.AddCreature();
                         break;
 
                     case MenuOptions.ShowCreatures:
-
+                        //CreatureService.GetAllCreatures();
                         break;
 
                     case MenuOptions.AddResearcher:
-
+                        //ResearcherService.AddResearcher();
                         break;
 
                     case MenuOptions.AddIncident:
-
+                        //IncidentService.AddIncident();
                         break;
 
                     case MenuOptions.ShowIndicents:
-
+                        //IncidentRepository.GetAll();
                         break;
 
                     case MenuOptions.GenerateRiskReport:
-
+                        //ReportService.GenerateRiskReport();
                         break;
 
                     case MenuOptions.ShowReports:
-
+                        //ReportRepository.GetAll();
                         break;
 
                     case MenuOptions.ShowStatistics:
-
+                        //StatisticsService.ShowStatistics();
                         break;
 
                     case MenuOptions.Exit:
@@ -91,46 +90,6 @@ namespace HausSlytherin_SMIS.Services
                 Console.ReadLine();
                 Console.Clear();
             }
-        }
-
-        public static void AddCreature(List<Creature> creatures)
-        {
-
-        }
-
-        public static void ShowCreatures(List<Creature> creatures)
-        {
-
-        }
-
-        public static void AddResearcher(List<Researcher> researchers)
-        {
-
-        }
-
-        public static void AddIncident(List<Incident> incidents)
-        {
-
-        }
-
-        public static void ShowIncidents(List<Incident> incidents)
-        {
-
-        }
-
-        public static void GenerateRiskReport(List<Creature> creatures, List<Incident> incidents)
-        {
-
-        }
-
-        public static void ShowRiskReports(List<RiskReport> reports)
-        {
-
-        }
-
-        public static void ShowStatistics(List<Creature> creatures, List<Incident> incidents)
-        {
-
         }
     }
 }
