@@ -18,18 +18,21 @@ public static class Logger
     /// <summary> Gibt den Pfad der aktuellen Tages-Logdatei zurueck. </summary>
     public static string LogFilePath => BuildLogFilePath(DateTime.Now);
 
-    /// <summary> Schreibt eine allgemeine Information in die Tages-Logdatei. </summary>
-    /// <param name="message">Die zu protokollierende Nachricht.</param>
-    public static void LogInfo(string message)
-    {
-        Write("INFO", message);
-    }
-
     /// <summary> Schreibt eine Nachricht mit einem spezifischen Log-Level in die Tages-Logdatei. </summary>
     /// <param name="message">Die zu protokollierende Nachricht.</param>
+    /// <param name="level">Das Log-Level der Nachricht.</param>
     public static void LogInfo(Level level, string message)
     {
         Write(level.ToString(), message);
+    }
+
+    /// <summary> Schreibt eine Nachricht mit einem spezifischen Log-Level in die Tages-Logdatei mit Konsolenausgabe. </summary>
+    /// <param name="message">Die zu protokollierende Nachricht.</param>
+    /// <param name="level">Das Log-Level der Nachricht.</param>
+    public static void LogInfoWithConsole(Level level, string message)
+    {
+        Write(level.ToString(), message);
+        Console.WriteLine($"[{level}] {message}");
     }
 
     /// <summary> Schreibt einen formatierten Logeintrag in die aktuelle Tagesdatei. </summary>
