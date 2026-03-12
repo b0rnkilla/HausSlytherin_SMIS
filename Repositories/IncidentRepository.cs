@@ -48,4 +48,19 @@ public class IncidentRepository : IRepository<Incident>
             existingIncident.CreatureId = item.CreatureId;
         }
     }
+
+    public List<Incident> GetByCreatureId(int creatureId)
+    {
+        return [.. _incidents
+            .Where(incident => incident.CreatureId == creatureId)
+            .OrderByDescending(incident => incident.Date)];
+    }
+
+    public List<Incident> GetByMinimumSeverity(SeverityLevel severity)
+    {
+        return [.. _incidents
+            .Where(incident => incident.Severity >= severity)
+            .OrderByDescending(incident => incident.Severity)
+            .ThenByDescending(incident => incident.Date)];
+    }
 }
