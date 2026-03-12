@@ -2,6 +2,7 @@ namespace HausSlytherin_SMIS.Enums
 {
     public enum CreatureType
     {
+        Unknown = 0,
         Dragon = 1,
         Unicorn = 2,
         Phoenix = 3,
@@ -12,6 +13,5 @@ namespace HausSlytherin_SMIS.Enums
         Vampire = 8,
         Zombie = 9,
         Ghost = 10
-
     }
 }

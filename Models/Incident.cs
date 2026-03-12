@@ -1,3 +1,5 @@
+using HausSlytherin_SMIS.Enums;
+
 namespace HausSlytherin_SMIS.Models;
 
 public class Incident
@@ -9,6 +11,6 @@ public class Incident
     public DateTime Date { get; set; }
     public int CreatureId { get; set; }
     
-    public void PrintSummary() => Console.WriteLine($"[{Date.ToShortDateString()}] {Title}: {Descpription}");
+    public void PrintSummary() => Console.WriteLine($"[{Date.ToShortDateString()}] {Title}: {Description}");
 
 }

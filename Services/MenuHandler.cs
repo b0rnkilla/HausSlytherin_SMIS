@@ -1,4 +1,4 @@
-﻿using HausSlytherin_SMIS.Enums;
+using HausSlytherin_SMIS.Enums;
 
 namespace HausSlytherin_SMIS.Services
 {
@@ -34,7 +34,7 @@ namespace HausSlytherin_SMIS.Services
                 string input = Console.ReadLine() ?? string.Empty;
                 Console.WriteLine(); // Leerzeile
 
-                if (!int.TryParse(input, out int number) || !Enum.IsDefined(typeof(MenuOptions), number))
+                if (!int.TryParse(input, out int number) || !System.Enum.IsDefined(typeof(MenuOptions), number))
                 {
                     Console.WriteLine("Ungültige Auswahl.\nBitte eine Zahl aus dem Menü eingeben.");
                     continue;
@@ -45,35 +45,35 @@ namespace HausSlytherin_SMIS.Services
                 switch (option)
                 {
                     case MenuOptions.AddCreature:
-                        //CreatureService.AddCreature();
+                        CreatureService.AddCreature();
                         break;
 
                     case MenuOptions.ShowCreatures:
-                        //CreatureService.GetAllCreatures();
+                        CreatureService.GetAllCreatures();
                         break;
 
                     case MenuOptions.AddResearcher:
-                        //ResearcherService.AddResearcher();
+                        ResearcherService.AddResearcher();
                         break;
 
                     case MenuOptions.AddIncident:
-                        //IncidentService.AddIncident();
+                        IncidentService.AddIncident();
                         break;
 
                     case MenuOptions.ShowIndicents:
-                        //IncidentRepository.GetAll();
+                        IncidentService.ShowIncidents();
                         break;
 
                     case MenuOptions.GenerateRiskReport:
-                        //ReportService.GenerateRiskReport();
+                        ReportService.GenerateRiskReportInteractive();
                         break;
 
                     case MenuOptions.ShowReports:
-                        //ReportRepository.GetAll();
+                        ReportService.PrintAllReports();
                         break;
 
                     case MenuOptions.ShowStatistics:
-                        //StatisticsService.ShowStatistics();
+                        StatisticsService.ShowStatistics();
                         break;
 
                     case MenuOptions.Exit:

@@ -1,3 +1,5 @@
+using HausSlytherin_SMIS.Enums;
+
 namespace HausSlytherin_SMIS.Models;
 
 public class Researcher

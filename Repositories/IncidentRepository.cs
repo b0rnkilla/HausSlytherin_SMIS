@@ -1,3 +1,4 @@
+using HausSlytherin_SMIS.Enums;
 using HausSlytherin_SMIS.Interfaces;
 using HausSlytherin_SMIS.Models;
 
@@ -56,7 +57,7 @@ public class IncidentRepository : IRepository<Incident>
             .OrderByDescending(incident => incident.Date)];
     }
 
-    public List<Incident> GetByMinimumSeverity(SeverityLevel severity)
+    public List<Incident> GetByMinimumSeverity(IncidentSeverity severity)
     {
         return [.. _incidents
             .Where(incident => incident.Severity >= severity)
