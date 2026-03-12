@@ -15,7 +15,7 @@ namespace HausSlytherin_SMIS.Services
 
                 if (string.IsNullOrWhiteSpace(name))
                 {
-                    Console.WriteLine("Ungültige Eingabe für Kreaturname: Leere oder nur Leerzeichen.");
+                    Console.WriteLine("Ungï¿½ltige Eingabe fï¿½r Kreaturname: Leere oder nur Leerzeichen.");
                     continue;
                 }
 
@@ -31,7 +31,7 @@ namespace HausSlytherin_SMIS.Services
             CreatureType creatureType;
             while (true)
             {
-                Console.WriteLine("Bitte Kreaturtyp auswählen:");
+                Console.WriteLine("Bitte Kreaturtyp auswaehlen:");
                 CreatureType[] values = Enum.GetValues<CreatureType>();
                 for (int i = 0; i < values.Length; i++)
                 {
@@ -49,7 +49,7 @@ namespace HausSlytherin_SMIS.Services
 
                 if (!int.TryParse(input, out int typeIndex))
                 {
-                    Console.WriteLine("Fehler: Bitte eine gültige ganze Zahl eingeben.");
+                    Console.WriteLine("Fehler: Bitte eine gï¿½ltige ganze Zahl eingeben.");
                     continue;
                 }
 
@@ -70,7 +70,7 @@ namespace HausSlytherin_SMIS.Services
                 species = (Console.ReadLine() ?? string.Empty).Trim();
                 if (string.IsNullOrWhiteSpace(species))
                 {
-                    Console.WriteLine("Ungültige Eingabe für Spezies: Leere oder nur Leerzeichen.");
+                    Console.WriteLine("Ungï¿½ltige Eingabe fï¿½r Spezies: Leere oder nur Leerzeichen.");
                     continue;
                 }
 
@@ -90,7 +90,7 @@ namespace HausSlytherin_SMIS.Services
                 habitat = (Console.ReadLine() ?? string.Empty).Trim();
                 if (string.IsNullOrWhiteSpace(habitat))
                 {
-                    Console.WriteLine("Ungültige Eingabe für Habitat: Leere oder nur Leerzeichen.");
+                    Console.WriteLine("Ungï¿½ltige Eingabe fï¿½r Habitat: Leere oder nur Leerzeichen.");
                     continue;
                 }
 
@@ -120,7 +120,7 @@ namespace HausSlytherin_SMIS.Services
             Console.WriteLine("Alle Kreaturen:");
             foreach (var creature in allCreatures)
             {
-                Console.WriteLine($"- {creature.Name} (Typ: {creature.CreatureType}, Spezies: {creature.Species}, Habitat: {creature.Habitat}, Gefahrenlevel: {creature.DangerLevel}, Eingeschränkt: {(creature.IsRestricted ? "Ja" : "Nein")})");
+                Console.WriteLine($"- {creature.Name} (Typ: {creature.CreatureType}, Spezies: {creature.Species}, Habitat: {creature.Habitat}, Gefahrenlevel: {creature.DangerLevel}, Eingeschrï¿½nkt: {(creature.IsRestricted ? "Ja" : "Nein")})");
             }
         }
 
@@ -130,13 +130,13 @@ namespace HausSlytherin_SMIS.Services
 
             if (creatures.Count == 0)
             {
-                Console.WriteLine("Keine Kreaturen vorhanden, um den gefährlichsten zu bestimmen.");
+                Console.WriteLine("Keine Kreaturen vorhanden, um den gefï¿½hrlichsten zu bestimmen.");
                 return;
             }
 
             var mostDangerous = creatures.OrderByDescending(c => c.DangerLevel).FirstOrDefault();
 
-            Console.WriteLine($"Die gefährlichste Kreatur ist: {mostDangerous.Name} mit einem Gefahrenlevel von {mostDangerous.DangerLevel}");
+            Console.WriteLine($"Die gefï¿½hrlichste Kreatur ist: {mostDangerous.Name} mit einem Gefahrenlevel von {mostDangerous.DangerLevel}");
         }
 
         public static void GetAverageDangerLevel()
@@ -151,7 +151,7 @@ namespace HausSlytherin_SMIS.Services
 
             double averageDangerLevel = creatures.Average(c => c.DangerLevel);
 
-            Console.WriteLine($"Der durchschnittliche Gefahrenlevel aller Kreaturen beträgt: {averageDangerLevel:F2}");
+            Console.WriteLine($"Der durchschnittliche Gefahrenlevel aller Kreaturen betrï¿½gt: {averageDangerLevel:F2}");
         }
 
         public static void GetRestrictedCreatures()
@@ -160,13 +160,13 @@ namespace HausSlytherin_SMIS.Services
 
             if (creatures.Count == 0)
             {
-                Console.WriteLine("Keine Kreaturen vorhanden, um die eingeschränkten Kreaturen zu bestimmen.");
+                Console.WriteLine("Keine Kreaturen vorhanden, um die eingeschrï¿½nkten Kreaturen zu bestimmen.");
                 return;
             }
 
             var restrictedCreatures = creatures.Where(c => c.IsRestricted == true).ToList();
 
-            Console.WriteLine("Eingeschränkte Kreaturen:"); 
+            Console.WriteLine("Eingeschrï¿½nkte Kreaturen:"); 
             foreach (var creature in restrictedCreatures)
             {
                 Console.WriteLine($"- {creature.Name} (Gefahrenlevel: {creature.DangerLevel})");

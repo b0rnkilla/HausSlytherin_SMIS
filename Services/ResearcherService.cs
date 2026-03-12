@@ -1,10 +1,10 @@
-using SlytherinMagicalIntelligenceSystem.Models;
-using SlytherinMagicalIntelligenceSystem.Models.Enums;
-using SlytherinMagicalIntelligenceSystem.Repositories;
+using HausSlytherin_SMIS.Models;
+using HausSlytherin_SMIS.Enums;
+using HausSlytherin_SMIS.Repositories;
 using AppLogger = HausSlytherin_SMIS.Logger;
 using LogLevel = HausSlytherin_SMIS.Enum.Level;
 
-namespace SlytherinMagicalIntelligenceSystem.Services
+namespace HausSlytherin_SMIS.Services
 {
     
         private readonly ResearcherRepository _researcherRepository;
