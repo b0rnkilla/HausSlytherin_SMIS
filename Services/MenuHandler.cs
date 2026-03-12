@@ -24,7 +24,7 @@ namespace HausSlytherin_SMIS.Services
             Console.WriteLine();
         }
 
-        public static void Run()
+        public static void Run(AppContainer appContainer)
         {
             while (true)
             {
@@ -45,31 +45,31 @@ namespace HausSlytherin_SMIS.Services
                 switch (option)
                 {
                     case MenuOptions.AddCreature:
-                        //CreatureService.AddCreature();
+                        appContainer.CreatureService.AddCreature();
                         break;
 
                     case MenuOptions.ShowCreatures:
-                        //CreatureService.GetAllCreatures();
+                        appContainer.CreatureService.GetAllCreatures();
                         break;
 
                     case MenuOptions.AddResearcher:
-                        //ResearcherService.AddResearcher();
+                        //appContainer.ResearcherService.AddResearcher();
                         break;
 
                     case MenuOptions.AddIncident:
-                        //IncidentService.AddIncident();
+                        //appContainer.IncidentService.AddIncident();
                         break;
 
                     case MenuOptions.ShowIndicents:
-                        //IncidentRepository.GetAll();
+                        //appContainer.IncidentService.GetAllIncidents();
                         break;
 
                     case MenuOptions.GenerateRiskReport:
-                        //ReportService.GenerateRiskReport();
+                        //appContainer.ReportService.GenerateRiskReport();
                         break;
 
                     case MenuOptions.ShowReports:
-                        //ReportRepository.GetAll();
+                        //appContainer.ReportService.GetAllReports();
                         break;
 
                     case MenuOptions.ShowStatistics:

@@ -6,11 +6,11 @@ using LogLevel = HausSlytherin_SMIS.Enums.Level;
 
 namespace HausSlytherin_SMIS.Services
 {
-    public class ReasearcherService
+    public class ResearcherService
     {
         private readonly ResearcherRepository _researcherRepository;
 
-        public ReasearcherService(ResearcherRepository researcherRepository)
+        public ResearcherService(ResearcherRepository researcherRepository)
         {
             _researcherRepository = researcherRepository;
         }
