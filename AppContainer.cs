@@ -30,7 +30,7 @@ namespace HausSlytherin_SMIS
             ResearcherFactory = new ResearcherFactory();
             CreatureService = new CreatureService(CreatureRepository, CreatureFactory);
             IncidentService = new IncidentService(IncidentRepository, CreatureRepository, IncidentFactory);
-            //ResearcherService = new ResearcherService(ResearcherRepository, ResearcherFactory);
+            ResearcherService = new ResearcherService(ResearcherRepository, ResearcherFactory);
             //RiskAnalysisService = new RiskAnalysisService(CreatureRepository, IncidentRepository);
 
             //TODO: o.g. Services müssen grundlegend überarbeitet werden, damit sie mit den Factories und Repositories zusammenarbeiten. Daher erstmal auskommentiert, damit die AppContainer-Klasse kompilierbar bleibt.
