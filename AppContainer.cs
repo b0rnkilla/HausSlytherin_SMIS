@@ -24,18 +24,26 @@ namespace HausSlytherin_SMIS
 
         public AppContainer()
         {
-            CreatureRepository = new CreatureRepository();
-            IncidentRepository = new IncidentRepository();
-            ResearcherRepository = new ResearcherRepository();
-            CreatureFactory = new CreatureFactory();
-            IncidentFactory = new IncidentFactory();
-            ResearcherFactory = new ResearcherFactory();
-            CreatureService = new CreatureService(CreatureRepository, CreatureFactory);
-            IncidentService = new IncidentService(IncidentRepository, CreatureRepository, IncidentFactory);
-            ResearcherService = new ResearcherService(ResearcherRepository, ResearcherFactory);
-            ReportService = new ReportService();
-            RiskAnalysisService = new RiskAnalysisService(CreatureRepository, IncidentRepository, ReportService);
-            StatisticsService = new StatisticsService(CreatureService, IncidentService, ResearcherService, ReportService);
+            try
+            {
+                CreatureRepository = new CreatureRepository();
+                IncidentRepository = new IncidentRepository();
+                ResearcherRepository = new ResearcherRepository();
+                CreatureFactory = new CreatureFactory();
+                IncidentFactory = new IncidentFactory();
+                ResearcherFactory = new ResearcherFactory();
+                CreatureService = new CreatureService(CreatureRepository, CreatureFactory);
+                IncidentService = new IncidentService(IncidentRepository, CreatureRepository, IncidentFactory);
+                ResearcherService = new ResearcherService(ResearcherRepository, ResearcherFactory);
+                ReportService = new ReportService();
+                RiskAnalysisService = new RiskAnalysisService(CreatureRepository, IncidentRepository, ReportService);
+                StatisticsService = new StatisticsService(CreatureService, IncidentService, ResearcherService, ReportService);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fehler bei der Initialisierung der Dienste: {ex.Message}");
+                throw;
+            }
         }
     }
 }
