@@ -58,18 +58,43 @@ namespace HausSlytherin_SMIS.Services
         /// Gibt alle erzeugten Berichte zurueck.
         /// </summary>
         /// <returns>Eine Liste aller Berichte.</returns>
-        public List<RiskReport> GetAllReports()
+        public void GetAllReports()
         {
-            return [.. _reports];
+            var reports = _reports
+                .OrderByDescending(report => report.RiskScore)
+                .ThenBy(report => report.CreatureName)
+                .ThenBy(report => report.IncidentTitle)
+                .ToList();
+
+            if (reports.Count == 0)
+            {
+                Console.WriteLine("Keine Risikoberichte vorhanden.");
+                return;
+            }
+
+            Console.WriteLine("Alle Risikoberichte:");
+            foreach (var report in reports)
+            {
+                PrintReport(report);
+            }
         }
 
         /// <summary>
         /// Gibt den zuletzt erzeugten Bericht zurueck.
         /// </summary>
         /// <returns>Der letzte Bericht oder <see langword="null"/>, wenn noch keiner existiert.</returns>
-        public RiskReport? GetLatestReport()
+        public void GetLatestReport()
         {
-            return _reports.LastOrDefault();
+            var latestReport = _reports.LastOrDefault();
+
+            if (latestReport is null)
+            {
+                Console.WriteLine("Kein Risikobericht vorhanden.");
+                return;
+            }
+
+            Console.WriteLine("Letzter Risikobericht:");
+            PrintReport(latestReport);
         }
 
         /// <summary>
@@ -87,11 +112,26 @@ namespace HausSlytherin_SMIS.Services
         /// Gibt nur Berichte zurueck, deren Risikowert mindestens dem angegebenen Grenzwert entspricht.
         /// </summary>
         /// <param name="minimumRiskScore">Der minimale Risikowert fuer die Rueckgabe.</param>
-        public List<RiskReport> GetHighRiskReports(int minimumRiskScore = 61)
+        public void GetHighRiskReports(int minimumRiskScore = 61)
         {
-            return [.. _reports
+            var reports = _reports
                 .Where(report => report.RiskScore >= minimumRiskScore)
-                .OrderByDescending(report => report.RiskScore)];
+                .OrderByDescending(report => report.RiskScore)
+                .ThenBy(report => report.CreatureName)
+                .ThenBy(report => report.IncidentTitle)
+                .ToList();
+
+            if (reports.Count == 0)
+            {
+                Console.WriteLine($"Keine Risikoberichte mit einem Risikowert von mindestens {minimumRiskScore} vorhanden.");
+                return;
+            }
+
+            Console.WriteLine($"Risikoberichte ab Score {minimumRiskScore}:");
+            foreach (var report in reports)
+            {
+                PrintReport(report);
+            }
         }
 
         /// <summary>
@@ -100,6 +140,16 @@ namespace HausSlytherin_SMIS.Services
         public double GetAverageRiskScore()
         {
             return _reports.Count == 0 ? 0 : _reports.Average(report => report.RiskScore);
+        }
+
+        /// <summary>
+        /// Hilfsmethode zur Ausgabe eines einzelnen Berichts in der Konsole.
+        /// </summary>
+        /// <param name="report"></param>
+        private static void PrintReport(RiskReport report)
+        {
+            Console.WriteLine(
+                $"- Kreatur: {report.CreatureName}, Vorfall: {report.IncidentTitle}, Strategie: {report.StrategyName}, Risiko: {report.RiskScore}, Empfehlung: {report.Recommendation}");
         }
     }
 }

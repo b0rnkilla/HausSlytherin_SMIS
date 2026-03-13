@@ -1,0 +1,11 @@
+[
+  {
+    "Id": 1,
+    "Name": "test",
+    "Species": "test",
+    "DangerLevel": 6,
+    "Habitat": "test",
+    "IsRestricted": true,
+    "CreatureType": 4
+  }
+]

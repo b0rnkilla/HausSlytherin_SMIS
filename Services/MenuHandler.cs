@@ -65,11 +65,11 @@ namespace HausSlytherin_SMIS.Services
                         break;
 
                     case MenuOptions.GenerateRiskReport:
-                        //appContainer.ReportService.GenerateRiskReport();
+                        appContainer.RiskAnalysisService.GenerateRiskReport();
                         break;
 
                     case MenuOptions.ShowReports:
-                        //appContainer.ReportService.GetAllReports();
+                        appContainer.ReportService.GetAllReports();
                         break;
 
                     case MenuOptions.ShowStatistics:
