@@ -6,7 +6,7 @@
         ShowCreatures = 2,
         AddResearcher = 3,
         AddIncident = 4,
-        ShowIndicents = 5,
+        ShowIncidents = 5,
         GenerateRiskReport = 6,
         ShowReports = 7,
         ShowStatistics = 8,
