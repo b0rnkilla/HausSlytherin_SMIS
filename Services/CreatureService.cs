@@ -1,7 +1,6 @@
 using HausSlytherin_SMIS.Enums;
 using HausSlytherin_SMIS.Factories;
 using HausSlytherin_SMIS.Interfaces;
-using HausSlytherin_SMIS.Repositories;
 
 namespace HausSlytherin_SMIS.Services
 {
@@ -49,7 +48,7 @@ namespace HausSlytherin_SMIS.Services
             CreatureType creatureType;
             while (true)
             {
-                Console.WriteLine("Bitte Kreaturtyp ausw�hlen:");
+                Console.WriteLine("Bitte Kreaturtyp auswählen:");
                 CreatureType[] values = System.Enum.GetValues<CreatureType>();
 
                 for (int i = 0; i < values.Length; i++)
@@ -68,7 +67,7 @@ namespace HausSlytherin_SMIS.Services
 
                 if (!int.TryParse(input, out int typeIndex))
                 {
-                    Console.WriteLine("Fehler: Bitte eine g�ltige ganze Zahl eingeben.");
+                    Console.WriteLine("Fehler: Bitte eine gültige ganze Zahl eingeben.");
                     continue;
                 }
 
@@ -137,7 +136,7 @@ namespace HausSlytherin_SMIS.Services
 
                 if (!int.TryParse(input, out danger))
                 {
-                    Console.WriteLine("Fehler: Bitte eine g�ltige ganze Zahl eingeben.");
+                    Console.WriteLine("Fehler: Bitte eine gültige ganze Zahl eingeben.");
                     continue;
                 }
 
@@ -153,7 +152,7 @@ namespace HausSlytherin_SMIS.Services
             bool restricted;
             while (true)
             {
-                Console.Write("Ist die Kreatur eingeschr�nkt? (ja/nein): ");
+                Console.Write("Ist die Kreatur eingeschränkt? (ja/nein): ");
                 string input = (Console.ReadLine() ?? string.Empty).Trim().ToLower();
 
                 if (string.IsNullOrWhiteSpace(input))
@@ -187,7 +186,7 @@ namespace HausSlytherin_SMIS.Services
         public void GetAllCreatures()
         {
             var allCreatures = _creatureRepository.GetAll();
-            
+
             if (allCreatures.Count == 0)
             {
                 Console.WriteLine("Keine Kreaturen vorhanden.");
@@ -197,7 +196,7 @@ namespace HausSlytherin_SMIS.Services
             Console.WriteLine("Alle Kreaturen:");
             foreach (var creature in allCreatures)
             {
-                Console.WriteLine($"- {creature.Name} (Typ: {creature.CreatureType}, Spezies: {creature.Species}, Habitat: {creature.Habitat}, Gefahrenlevel: {creature.DangerLevel}, Eingeschr�nkt: {(creature.IsRestricted ? "Ja" : "Nein")})");
+                Console.WriteLine($"- {creature.Name} (Typ: {creature.CreatureType}, Spezies: {creature.Species}, Habitat: {creature.Habitat}, Gefahrenlevel: {creature.DangerLevel}, Eingeschränkt: {(creature.IsRestricted ? "Ja" : "Nein")})");
             }
         }
 
@@ -207,13 +206,13 @@ namespace HausSlytherin_SMIS.Services
 
             if (creatures.Count == 0)
             {
-                Console.WriteLine("Keine Kreaturen vorhanden, um den gef�hrlichsten zu bestimmen.");
+                Console.WriteLine("Keine Kreaturen vorhanden, um den gefährlichsten zu bestimmen.");
                 return;
             }
 
             var mostDangerous = creatures.OrderByDescending(c => c.DangerLevel).FirstOrDefault();
 
-            Console.WriteLine($"Die gef�hrlichste Kreatur ist: {mostDangerous.Name} mit einem Gefahrenlevel von {mostDangerous.DangerLevel}");
+            Console.WriteLine($"Die gefährlichste Kreatur ist: {mostDangerous.Name} mit einem Gefahrenlevel von {mostDangerous.DangerLevel}");
         }
 
         public void GetAverageDangerLevel()
@@ -228,7 +227,7 @@ namespace HausSlytherin_SMIS.Services
 
             double averageDangerLevel = creatures.Average(c => c.DangerLevel);
 
-            Console.WriteLine($"Der durchschnittliche Gefahrenlevel aller Kreaturen betr�gt: {averageDangerLevel:F2}");
+            Console.WriteLine($"Der durchschnittliche Gefahrenlevel aller Kreaturen beträgt: {averageDangerLevel:F2}");
         }
 
         public void GetRestrictedCreatures()
@@ -237,13 +236,13 @@ namespace HausSlytherin_SMIS.Services
 
             if (creatures.Count == 0)
             {
-                Console.WriteLine("Keine Kreaturen vorhanden, um die eingeschr�nkten Kreaturen zu bestimmen.");
+                Console.WriteLine("Keine Kreaturen vorhanden, um die eingeschränkten Kreaturen zu bestimmen.");
                 return;
             }
 
             var restrictedCreatures = creatures.Where(c => c.IsRestricted == true).ToList();
 
-            Console.WriteLine("Eingeschr�nkte Kreaturen:"); 
+            Console.WriteLine("Eingeschränkte Kreaturen:");
             foreach (var creature in restrictedCreatures)
             {
                 Console.WriteLine($"- {creature.Name} (Gefahrenlevel: {creature.DangerLevel})");
