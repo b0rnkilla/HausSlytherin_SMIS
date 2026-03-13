@@ -26,11 +26,11 @@ namespace HausSlytherin_SMIS.Services
         {
             while (true)
             {
-                MenuHandler.ShowMenu();
+                ShowMenu();
 
                 Console.Write("Auswahl: ");
                 string input = Console.ReadLine() ?? string.Empty;
-                Console.WriteLine();
+                Console.WriteLine(); // Leerzeile
 
                 if (!int.TryParse(input, out int number) || !System.Enum.IsDefined(typeof(MenuOptions), number))
                 {
@@ -47,7 +47,6 @@ namespace HausSlytherin_SMIS.Services
                         break;
 
                     case MenuOptions.ShowCreatures:
-                        // Geändert auf GetAllCreatures (passend zu deinem Service)
                         appContainer.CreatureService.GetAllCreatures();
                         break;
 
@@ -60,8 +59,19 @@ namespace HausSlytherin_SMIS.Services
                         break;
 
                     case MenuOptions.ShowIncidents:
-                        // Geändert auf GetAllIncidents (passend zu deinem Service)
                         appContainer.IncidentService.GetAllIncidents();
+                        break;
+
+                    case MenuOptions.GenerateRiskReport:
+                        appContainer.RiskAnalysisService.GenerateRiskReport();
+                        break;
+
+                    case MenuOptions.ShowReports:
+                        appContainer.ReportService.GetAllReports();
+                        break;
+
+                    case MenuOptions.ShowStatistics:
+                        appContainer.StatisticsService.ShowStatistics();
                         break;
 
                     case MenuOptions.Exit:
@@ -69,14 +79,18 @@ namespace HausSlytherin_SMIS.Services
                         return;
 
                     default:
-                        Console.WriteLine("Diese Funktion ist noch nicht implementiert.");
+                        Console.WriteLine("Ungültige Option.");
                         break;
                 }
 
-                Console.WriteLine();
+                Console.WriteLine(); // Leerzeile
                 Console.WriteLine("Drücke ENTER, um zum Menü zurückzukehren.");
                 Console.ReadLine();
-                Console.Clear();
+
+                if (!Console.IsOutputRedirected)
+                {
+                    Console.Clear();
+                }
             }
         }
     }
