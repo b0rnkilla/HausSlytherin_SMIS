@@ -57,11 +57,11 @@ namespace HausSlytherin_SMIS.Services
                         break;
 
                     case MenuOptions.AddIncident:
-                        //appContainer.IncidentService.AddIncident();
+                        appContainer.IncidentService.AddIncident();
                         break;
 
                     case MenuOptions.ShowIndicents:
-                        //appContainer.IncidentService.GetAllIncidents();
+                        appContainer.IncidentService.GetAllIncidents();
                         break;
 
                     case MenuOptions.GenerateRiskReport:
