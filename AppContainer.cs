@@ -29,7 +29,7 @@ namespace HausSlytherin_SMIS
             IncidentFactory = new IncidentFactory();
             ResearcherFactory = new ResearcherFactory();
             CreatureService = new CreatureService(CreatureRepository, CreatureFactory);
-            //IncidentService = new IncidentService(IncidentRepository, IncidentFactory);
+            IncidentService = new IncidentService(IncidentRepository, CreatureRepository, IncidentFactory);
             //ResearcherService = new ResearcherService(ResearcherRepository, ResearcherFactory);
             //RiskAnalysisService = new RiskAnalysisService(CreatureRepository, IncidentRepository);
 
