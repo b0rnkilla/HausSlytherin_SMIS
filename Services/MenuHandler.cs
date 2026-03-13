@@ -53,7 +53,7 @@ namespace HausSlytherin_SMIS.Services
                         break;
 
                     case MenuOptions.AddResearcher:
-                        //appContainer.ResearcherService.AddResearcher();
+                        appContainer.ResearcherService.AddResearcher();
                         break;
 
                     case MenuOptions.AddIncident:
